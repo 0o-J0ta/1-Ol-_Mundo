@@ -1,0 +1,42 @@
+import os
+import shutil
+
+def verificar_e_mover_arquivos(origem, destino):
+    
+    # Verifica se a pasta de origem existe
+    if not os.path.exists(origem):
+        print("A pasta de origem {} não existe.".format(origem))
+        return
+    
+    # Verifica se a pasta de destino existe, se não, pode criar
+    if not os.path.exists(destino):
+        os.makedirs(destino)
+
+    # Lista os arquivos na pasta de origem
+    arquivos = os.listdir(origem)
+
+    # Verifica se a pasta de origem está vazia
+    if len(arquivos) == 0:
+        print("A pasta de origem {} está vazia.".format(origem))
+        return
+
+    # interação sobre os arquivos na pasta de origem
+    for arquivo in arquivos:
+        caminho_arquivo = os.path.join(origem, arquivo)
+        
+        # Verifica se é um arquivo
+        if os.path.isfile(caminho_arquivo):
+            
+            # Move o arquivo para a pasta de destino
+            shutil.move(caminho_arquivo, destino)
+            print("Arquivo {} movido para {}".format(arquivo, destino))
+
+#PROGRAMA PRINCIPAL
+
+
+# Pasta de origem e pasta de destino
+origem = r"C:\Users\incos\Documents\pega daqui"
+destino = r"C:\Users\incos\Documents\joga aqui"
+
+# Chamando a função para verificar e mover os arquivos
+verificar_e_mover_arquivos(origem, destino)			
