@@ -1,0 +1,23 @@
+#PROJETO NÃO FINALIZADO
+
+
+import tkinter as tk
+
+Janela_exibe = tk.Tk()
+Janela_exibe.title('Projeto Mad Libs')
+
+def clicado():
+    print("vc e foda não desista!!!")
+
+botao = tk.Button(Janela_exibe, text ="Clique em mim", command=clicado)
+botao.pack()
+#coloquei a função/def de quando o botão for clicado aparecer a mensagem definida
+
+
+barra_menu = tk.Menu(Janela_exibe)
+Janela_exibe.config(menu = barra_menu)
+
+menu_arquivo = tk.Menu(barra_menu, tearoff=0)
+
+ 
+Janela_exibe.mainloop()
